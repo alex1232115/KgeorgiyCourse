@@ -4,12 +4,18 @@ import introduction.jsonParser.JSON;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+@ExtendWith(MockitoExtension.class)
 public class JSONTest {
     @Test
     public void testBoolean() {
@@ -24,6 +30,7 @@ public class JSONTest {
         invalid("nul2");
         invalid("null2");
     }
+
     @Test
     public void testWhitespace() {
         valid(null, "\r\n\tnull");
@@ -67,7 +74,7 @@ public class JSONTest {
     }
 
     @Test
-    public void testMap(){
+    public void testMap() {
         valid(Map.of(), "{}");
         valid(Map.of(), "{ }");
         valid(Map.of("hello", true), "{ \"hello\": true}");
@@ -112,6 +119,43 @@ public class JSONTest {
     }
 
     private void valid(Object expected, String input) {
-        Assertions.assertEquals(expected, JSON.parse(input));
+        assertEquals(expected, JSON.parse(input));
+    }
+
+    /*
+    M O C K I T O - T R A I N I N G
+     */
+    class MockTest {
+        @Mock
+        List mockList;
+
+        @Test
+        public void whenNotUseMockAnnotation_thenCorrect() {
+            //эти методы не будут ничего делать – это заглушки
+            mockList.add("one");
+            mockList.add("two");
+        }
+    }
+
+    class SpyTest {
+        @Test
+        public void whenMockAnnotation() {
+            List<String> mockList = Mockito.spy(new ArrayList<String>());
+            //эти методы будут работать!
+            mockList.add("one");
+            mockList.add("two");
+        }
+    }
+
+    @Mock
+    List mockList;
+
+    @Test
+    public void whenMockAnnotation() {
+        //создаем правило: вернуть 10 при вызове метода size
+        Mockito.doReturn(10).when(mockList).size();
+
+        //тут вызывается метод и вернет 10!!
+        assertEquals(10, mockList.size());
     }
 }
