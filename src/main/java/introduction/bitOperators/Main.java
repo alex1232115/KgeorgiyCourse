@@ -2,30 +2,30 @@ package introduction.bitOperators;
 
 public class Main {
     public static void main(String[] args) {
-        /* РїРѕР±РёС‚РѕРІС‹Р№ СЃРґРІРёРі РІРїСЂР°РІРѕ >> */
+        /* побитовый сдвиг вправо >> */
 
 //        int i = 0b100;
 //        System.out.println(i);
 //        System.out.println(Integer.toBinaryString(i));
-//        System.out.println("Р‘С‹СЃС‚СЂРѕРµ РґРµР»РµРЅРёРµ РЅР° 2: " + (i >> 1));
+//        System.out.println("Быстрое деление на 2: " + (i >> 1));
 //
 //        int b1 = 0b00001001;
 //        int b2 = 0b00001010;
 //        printBinary(b1);
 //        printBinary(b2);
-//        /* РџРѕР±РёС‚РѕРІРѕРµ Р (AND) */
+//        /* Побитовое И (AND) */
 //        System.out.println("(AND)");
 //        printBinary(b1 & b2);
 //
-//        /* РџРѕР±РёС‚РѕРІРѕРµ РР›Р (OR) */
+//        /* Побитовое ИЛИ (OR) */
 //        System.out.println("(OR)");
 //        printBinary(b1 | b2);
 //
-//        /* РСЃРєР»СЋС‡Р°СЋС‰РµРµ РР›Р (XOR) */
+//        /* Исключающее ИЛИ (XOR) */
 //        System.out.println("(XOR)");
 //        printBinary(b1 ^ b2);
 //
-//        /* РРЅРІРµСЂСЃРёСЏ (NOT) */
+//        /* Инверсия (NOT) */
 //        System.out.println("(NOT)");
 //        printBinary(~b1);
 //
