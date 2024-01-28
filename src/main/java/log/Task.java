@@ -1,8 +1,14 @@
 package log;
 
 public class Task {
-    public String getId() {
-        return "1";
+    private final int id;
+
+    public Task(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void start() {
