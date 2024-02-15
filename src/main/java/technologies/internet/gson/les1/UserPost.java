@@ -1,10 +1,7 @@
-package technologies.internet.serdes;
-
-import java.time.LocalDate;
+package technologies.internet.gson.les1;
 
 public class UserPost {
     private String photoUrl;
-
 
     private int userId;
 
