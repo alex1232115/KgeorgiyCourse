@@ -9,6 +9,9 @@ public class UserPost {
 
     private int likesQuantity;
 
+    public UserPost() {
+    }
+
     public UserPost(String photoUrl, int userId, String description, int likesQuantity) {
         this.photoUrl = photoUrl;
         this.userId = userId;
