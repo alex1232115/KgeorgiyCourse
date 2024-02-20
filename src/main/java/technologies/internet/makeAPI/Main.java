@@ -1,4 +1,4 @@
-package technologies.internet;
+package technologies.internet.makeAPI;
 
 import com.sun.net.httpserver.HttpServer;
 
