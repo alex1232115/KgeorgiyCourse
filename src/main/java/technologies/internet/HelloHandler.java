@@ -16,7 +16,8 @@ public class HelloHandler implements HttpHandler {
     public void handle(HttpExchange exchange) throws IOException {
         System.out.println("Началась обработка /hello");
         try (InputStream inputStream = exchange.getRequestBody();
-             OutputStream outputStream = exchange.getResponseBody()) {
+             OutputStream outputStream = exchange.getResponseBody()
+        ) {
 
             Headers requestHeaders = exchange.getRequestHeaders();
             System.out.println("Заголовки запроса: " + requestHeaders.entrySet());
